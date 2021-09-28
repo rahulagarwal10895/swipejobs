@@ -59,7 +59,7 @@ public class JobService {
 		setRelevance(allAvailableJobs, worker);
 
 		// filter on licence and distance
-		filterJobs(allAvailableJobs, worker);
+		allAvailableJobs = filterJobs(allAvailableJobs, worker);
 
 		return getTopMatchingJobs(allAvailableJobs);
 	}
@@ -77,11 +77,12 @@ public class JobService {
 		});
 	}
 	
-	private void filterJobs(List<Job> allAvailableJobs, Worker worker) {
+	private List<Job> filterJobs(List<Job> allAvailableJobs, Worker worker) {
 		for (String filter : filters) {
 			JobFilter jobFilter = (JobFilter) context.getBean(filter);
 			allAvailableJobs = jobFilter.filter(allAvailableJobs, worker);
 		}
+		return allAvailableJobs;
 	}
 
 	private List<Job> getTopMatchingJobs(List<Job> allAvailableJobs) {
