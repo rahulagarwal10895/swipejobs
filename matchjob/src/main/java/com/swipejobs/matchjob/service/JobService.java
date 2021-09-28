@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Service;
 
+import com.swipejobs.matchjob.comparator.JobComparator;
 import com.swipejobs.matchjob.filter.JobFilter;
 import com.swipejobs.matchjob.model.Job;
 import com.swipejobs.matchjob.model.Worker;

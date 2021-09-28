@@ -1,4 +1,4 @@
-package com.swipejobs.matchjob.service;
+package com.swipejobs.matchjob.comparator;
 
 import java.util.Comparator;
 
@@ -10,8 +10,8 @@ public class JobComparator implements Comparator<Job> {
 	public int compare(Job o1, Job o2) {
 
 		//Sort on Relevance than
-		//Sort on Certificates size than
-		//Sort on Distance
+		//Sort on Certificates size if relevance are equal
+		//Sort on Distance if certificate size are equal
 		
 		if (o1.getRelevance().equals(o2.getRelevance())) {
 			if (o1.getRequiredCertificates().size() == o2.getRequiredCertificates().size()) {
